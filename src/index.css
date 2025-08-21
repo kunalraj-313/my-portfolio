@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    margin: 0;
+  }
+}
+
+@layer components {
+  .typewriter-text {
+    display: inline-block;
+    overflow: hidden;
+    border-right: 0.15em solid #f97316;
+    white-space: nowrap;
+    margin: 0;
+    letter-spacing: 0.1em;
+    animation: typing 2s steps(10, end) 0.5s 1 normal both,
+      blink-caret 0.75s step-end infinite 2.5s;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: #f97316;
+    }
+  }
+}
