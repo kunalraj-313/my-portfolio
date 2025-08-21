@@ -32,21 +32,7 @@ This portfolio is built with:
 - Tailwind CSS 🎨
 - Modern JavaScript 📜
 
-### 🚀 Getting Started
-
-```bash
-# Clone the repository
-git clone https://github.com/kunalraj-313/my-portfolio.git
-
-# Navigate to the project directory
-cd my-portfolio
-
-# Install dependencies
-npm install
-
-# Start the development server
-npm run dev
-```
+It was in vanilla JS before and was completely migrated to this stack using AI agents
 
 ### 📱 Contact
 
