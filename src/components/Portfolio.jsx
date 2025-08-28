@@ -14,19 +14,18 @@ const Portfolio = () => {
       description:
         "A web-based image editing tool built with React and Canvas API",
       image: folio1,
-      github: "#",
-      live: "#",
+      github: "https://github.com/kunalraj-313/image-editor",
+      live: "https://image-editor-313.vercel.app/",
       technologies: ["React", "Canvas API", "JavaScript"],
     },
     {
       id: 2,
-      title: "E-Commerce Platform",
-      description:
-        "Full-featured online shopping platform with payment integration",
+      title: "Tetris",
+      description: "Fully functional Tetris game with score tracking",
       image: folio2,
-      github: "#",
-      live: "#",
-      technologies: ["React", "Node.js", "MongoDB"],
+      github: "https://github.com/kunalraj-313/tetris",
+      live: "https://tetris-blond-two.vercel.app/",
+      technologies: ["React", "Supabase", "PostgreSQL"],
     },
     {
       id: 3,

@@ -15,41 +15,45 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="bg-gray-50 pt-20 relative">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center justify-between min-h-screen pt-12">
+    <section id="home" className="bg-gray-50 pt-16 sm:pt-20 relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row items-center justify-between pt-8 sm:pt-12">
           {/* Text Content */}
-          <div className="lg:w-1/2 text-left mb-8 lg:mb-0">
-            <h6 className="text-gray-500 text-lg mb-2">hello,I'm</h6>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-4">
+          <div className="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0">
+            <h6 className="text-gray-500 text-base sm:text-lg mb-2">
+              hello, I'm
+            </h6>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4 leading-tight">
               Kunal Raj
             </h1>
-            <p className="text-xl text-gray-600 mb-8">Front End Developer</p>
+            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8">
+              Front End Developer
+            </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
               <button
                 onClick={handleHireMe}
-                className="bg-orange-500 text-white px-8 py-3 rounded-full hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 font-medium shadow-lg"
+                className="bg-orange-500 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 font-medium shadow-lg text-sm sm:text-base"
               >
                 HIRE ME
               </button>
               <button
                 onClick={handleDownloadCV}
-                className="bg-gray-800 text-white px-8 py-3 rounded-full hover:bg-gray-700 transition-all duration-300 transform hover:scale-105 font-medium"
+                className="bg-gray-800 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-gray-700 transition-all duration-300 transform hover:scale-105 font-medium text-sm sm:text-base"
               >
                 DOWNLOAD CV
               </button>
             </div>
 
-            <div className="flex space-x-4">
+            <div className="flex justify-center lg:justify-start space-x-4">
               <a
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center hover:bg-opacity-90 transition-all duration-300"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-primary text-white rounded-full flex items-center justify-center hover:bg-opacity-90 transition-all duration-300"
               >
                 <svg
-                  className="w-6 h-6"
+                  className="w-5 h-5 sm:w-6 sm:h-6"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -64,32 +68,42 @@ const Hero = () => {
           </div>
 
           {/* 3D Character Image */}
-          <div className="lg:w-1/2 flex justify-center">
+          <div className="lg:w-1/2 flex justify-center mb-12 sm:mb-16 lg:mb-0">
             <div className="relative">
               <img
                 src={manImage}
                 alt="Kunal Raj - 3D Character"
-                className="w-96 h-96 md:w-[500px] md:h-[500px] object-contain"
+                className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px] object-contain"
               />
             </div>
           </div>
         </div>
 
-        {/* Stats Widget - Unified Card */}
-        <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 max-w-4xl w-full px-4">
-          <div className="bg-white rounded-3xl shadow-xl p-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-              <div>
-                <h2 className="text-4xl font-bold text-gray-800 mb-2">2+</h2>
-                <p className="text-gray-500">Years of Experience</p>
+        {/* Stats Widget - Responsive positioning */}
+        <div className="relative lg:absolute lg:-bottom-16 lg:left-1/2 lg:transform lg:-translate-x-1/2 max-w-4xl w-full px-4 -mt-8 lg:mt-0">
+          <div className="bg-white rounded-2xl sm:rounded-3xl shadow-xl p-4 sm:p-6 lg:p-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 text-center">
+              <div className="py-2">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-1 sm:mb-2">
+                  4+
+                </h2>
+                <p className="text-gray-500 text-sm sm:text-base">
+                  Years of Experience
+                </p>
               </div>
-              <div>
-                <h2 className="text-4xl font-bold text-gray-800 mb-2">456</h2>
-                <p className="text-gray-500">Project Completed</p>
+              <div className="py-2 border-t sm:border-t-0 sm:border-l sm:border-r border-gray-200">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-1 sm:mb-2">
+                  14
+                </h2>
+                <p className="text-gray-500 text-sm sm:text-base">
+                  Projects Completed
+                </p>
               </div>
-              <div>
-                <h2 className="text-4xl font-bold text-gray-800 mb-2">789</h2>
-                <p className="text-gray-500">Awards Won</p>
+              <div className="py-2 border-t sm:border-t-0 border-gray-200">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-1 sm:mb-2">
+                  789
+                </h2>
+                <p className="text-gray-500 text-sm sm:text-base">Awards Won</p>
               </div>
             </div>
           </div>
