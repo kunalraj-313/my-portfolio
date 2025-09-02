@@ -29,12 +29,12 @@ const Portfolio = () => {
     },
     {
       id: 3,
-      title: "Task Management App",
-      description: "Collaborative task management tool with real-time updates",
+      title: "Space Shooter",
+      description: "A 3D space shooter game ",
       image: folio3,
-      github: "#",
-      live: "#",
-      technologies: ["Vue.js", "Firebase", "Tailwind"],
+      github: "https://github.com/kunalraj-313/threejs-test",
+      live: "https://threejs-test-pearl-nu.vercel.app/",
+      technologies: ["React","Three JS","React Three Fiber"],
     },
     {
       id: 4,
