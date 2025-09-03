@@ -103,7 +103,7 @@ const Hero = () => {
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-1 sm:mb-2">
                   789
                 </h2>
-                <p className="text-gray-500 text-sm sm:text-base">Awards Won</p>
+                <p className="text-gray-500 text-sm sm:text-base">Profile Views</p>
               </div>
             </div>
           </div>
