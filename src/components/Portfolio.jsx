@@ -17,6 +17,7 @@ const Portfolio = () => {
       github: "https://github.com/kunalraj-313/image-editor",
       live: "https://image-editor-313.vercel.app/",
       technologies: ["React", "Canvas API", "JavaScript"],
+      workInProgress: false,
     },
     {
       id: 2,
@@ -26,6 +27,7 @@ const Portfolio = () => {
       github: "https://github.com/kunalraj-313/tetris",
       live: "https://tetris-blond-two.vercel.app/",
       technologies: ["React", "Supabase", "PostgreSQL"],
+      workInProgress: false,
     },
     {
       id: 3,
@@ -35,6 +37,7 @@ const Portfolio = () => {
       github: "https://github.com/kunalraj-313/threejs-test",
       live: "https://threejs-test-pearl-nu.vercel.app/",
       technologies: ["React","Three JS","React Three Fiber"],
+      workInProgress: false,
     },
     {
       id: 4,
@@ -44,6 +47,7 @@ const Portfolio = () => {
       github: "#",
       live: "#",
       technologies: ["React", "API Integration", "CSS3"],
+      workInProgress: true,
     },
     {
       id: 5,
@@ -53,6 +57,7 @@ const Portfolio = () => {
       github: "#",
       live: "#",
       technologies: ["React", "Tailwind", "Framer Motion"],
+      workInProgress: true,
     },
     {
       id: 6,
@@ -62,6 +67,7 @@ const Portfolio = () => {
       github: "#",
       live: "#",
       technologies: ["React", "Socket.io", "Express"],
+      workInProgress: true,
     },
   ];
 
@@ -83,56 +89,74 @@ const Portfolio = () => {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+              className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 relative"
             >
               {/* Project Image */}
-              <div className="h-48 overflow-hidden">
+              <div className="h-48 overflow-hidden relative">
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
+                {/* Orange overlay for coming soon projects */}
+                {project.workInProgress && (
+                  <div className="absolute inset-0 bg-orange-500 bg-opacity-90 flex items-center justify-center">
+                    <span className="text-white text-xl font-bold">Coming Soon</span>
+                  </div>
+                )}
               </div>
 
-              {/* Project Content */}
-              <div className="p-6">
-                <h5 className="text-xl font-semibold text-gray-800 mb-2">
-                  {project.title}
-                </h5>
-                <p className="text-gray-600 text-sm mb-4">
-                  {project.description}
-                </p>
+              {/* Project Content - Hidden for coming soon projects */}
+              {!project.workInProgress ? (
+                <div className="p-6">
+                  <h5 className="text-xl font-semibold text-gray-800 mb-2">
+                    {project.title}
+                  </h5>
+                  <p className="text-gray-600 text-sm mb-4">
+                    {project.description}
+                  </p>
 
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                  {/* Technologies */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech, index) => (
+                      <span
+                        key={index}
+                        className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex space-x-3">
+                    <a
+                      href={project.github}
+                      className="flex-1 bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition-colors duration-300 text-sm"
                     >
-                      {tech}
-                    </span>
-                  ))}
+                      <span className="mr-1">📁</span>
+                      Code
+                    </a>
+                    <a
+                      href={project.live}
+                      className="flex-1 bg-primary text-white text-center py-2 rounded hover:bg-opacity-90 transition-colors duration-300 text-sm"
+                    >
+                      <span className="mr-1">🔗</span>
+                      Live
+                    </a>
+                  </div>
                 </div>
-
-                {/* Action Buttons */}
-                <div className="flex space-x-3">
-                  <a
-                    href={project.github}
-                    className="flex-1 bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition-colors duration-300 text-sm"
-                  >
-                    <span className="mr-1">📁</span>
-                    Code
-                  </a>
-                  <a
-                    href={project.live}
-                    className="flex-1 bg-primary text-white text-center py-2 rounded hover:bg-opacity-90 transition-colors duration-300 text-sm"
-                  >
-                    <span className="mr-1">🔗</span>
-                    Live
-                  </a>
+              ) : (
+                /* Coming Soon Content */
+                <div className="p-6 text-center">
+                  <h5 className="text-xl font-semibold text-gray-800 mb-2">
+                    Coming Soon
+                  </h5>
+                  <p className="text-gray-600 text-sm">
+                    Exciting project in development. Stay tuned!
+                  </p>
                 </div>
-              </div>
+              )}
             </div>
           ))}
         </div>

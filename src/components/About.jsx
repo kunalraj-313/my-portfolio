@@ -1,10 +1,16 @@
 import React from "react";
 import avatarImage from "../assets/avatar.jpeg";
+import kunalCV from "../assets/Kunal CV.pdf";
 
 const About = () => {
   const handleDownloadCV = () => {
-    // Add CV download logic here
-    console.log("Download CV clicked");
+    // Create a link element and trigger download
+    const link = document.createElement('a');
+    link.href = kunalCV;
+    link.download = 'Kunal_Raj_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -31,7 +37,7 @@ const About = () => {
 
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>
-                Passionate front-end developer with 2+ years of experience
+                Passionate front-end developer with 4+ years of experience
                 creating beautiful, responsive web applications. I specialize in
                 React, JavaScript, and modern CSS frameworks to bring designs to
                 life with pixel-perfect precision and smooth user experiences.
@@ -46,7 +52,7 @@ const About = () => {
 
             <button
               onClick={handleDownloadCV}
-              className="mt-8 bg-primary text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105"
+                className="bg-orange-500 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 font-medium shadow-lg text-sm sm:text-base mt-[20px]"
             >
               DOWNLOAD CV
             </button>

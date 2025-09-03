@@ -1,5 +1,6 @@
 import React from "react";
 import manImage from "../assets/man.png";
+import kunalCV from "../assets/Kunal CV.pdf";
 
 const Hero = () => {
   const handleHireMe = () => {
@@ -10,8 +11,13 @@ const Hero = () => {
   };
 
   const handleDownloadCV = () => {
-    // Add CV download logic here
-    console.log("Download CV clicked");
+    // Create a link element and trigger download
+    const link = document.createElement('a');
+    link.href = kunalCV;
+    link.download = 'Kunal_Raj_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
