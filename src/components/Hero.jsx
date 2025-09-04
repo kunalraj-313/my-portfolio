@@ -12,15 +12,18 @@ const Hero = () => {
     const fetchViews = async () => {
       try {
         const views = await getTotalViews('/');
-        setTotalViews(views);
+        setTotalViews(views || 789); // Fallback to 789 if no data
       } catch (error) {
         console.error('Error fetching views:', error);
+        setTotalViews(789); // Fallback on error
       } finally {
         setLoading(false);
       }
     };
 
-    fetchViews();
+    // Add a small delay to allow for component mount
+    const timer = setTimeout(fetchViews, 1000);
+    return () => clearTimeout(timer);
   }, [getTotalViews]);
 
   const handleHireMe = () => {
