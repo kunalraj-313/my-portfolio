@@ -8,8 +8,12 @@ import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import HireMe from "./components/HireMe";
+import { useViewTracker } from "./hooks/useViewTracker";
 
 function App() {
+  // Track page views automatically
+  useViewTracker('/');
+
   return (
     <div className="App">
       <Navbar />

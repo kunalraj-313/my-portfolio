@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import manImage from "../assets/man.png";
 import kunalCV from "../assets/Kunal CV.pdf";
+import { useViewStats } from "../hooks/useViewTracker";
 
 const Hero = () => {
+  const [totalViews, setTotalViews] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const { getTotalViews } = useViewStats();
+
+  useEffect(() => {
+    const fetchViews = async () => {
+      try {
+        const views = await getTotalViews('/');
+        setTotalViews(views);
+      } catch (error) {
+        console.error('Error fetching views:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchViews();
+  }, [getTotalViews]);
+
   const handleHireMe = () => {
     window.open(
       "https://mail.google.com/mail/?view=cm&fs=1&to=kunalraj72@gmail.com&su=Your%20Subject%20Here",
@@ -107,7 +127,11 @@ const Hero = () => {
               </div>
               <div className="py-2 border-t sm:border-t-0 border-gray-200">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-1 sm:mb-2">
-                  789
+                  {loading ? (
+                    <span className="inline-block w-16 h-8 bg-gray-200 rounded animate-pulse"></span>
+                  ) : (
+                    totalViews.toLocaleString()
+                  )}
                 </h2>
                 <p className="text-gray-500 text-sm sm:text-base">Profile Views</p>
               </div>
