@@ -1,30 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import manImage from "../assets/man.png";
 import kunalCV from "../assets/Kunal CV.pdf";
-import { useViewStats } from "../hooks/useViewTracker";
+import { useViewCounter } from "../hooks/useViewCounter";
 
 const Hero = () => {
-  const [totalViews, setTotalViews] = useState(0);
-  const [loading, setLoading] = useState(true);
-  const { getTotalViews } = useViewStats();
-
-  useEffect(() => {
-    const fetchViews = async () => {
-      try {
-        const views = await getTotalViews('/');
-        setTotalViews(views || 789); // Fallback to 789 if no data
-      } catch (error) {
-        console.error('Error fetching views:', error);
-        setTotalViews(789); // Fallback on error
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    // Add a small delay to allow for component mount
-    const timer = setTimeout(fetchViews, 1000);
-    return () => clearTimeout(timer);
-  }, [getTotalViews]);
+  const { viewCount, loading } = useViewCounter();
 
   const handleHireMe = () => {
     window.open(
@@ -133,7 +113,7 @@ const Hero = () => {
                   {loading ? (
                     <span className="inline-block w-16 h-8 bg-gray-200 rounded animate-pulse"></span>
                   ) : (
-                    totalViews.toLocaleString()
+                    viewCount.toLocaleString()
                   )}
                 </h2>
                 <p className="text-gray-500 text-sm sm:text-base">Profile Views</p>
